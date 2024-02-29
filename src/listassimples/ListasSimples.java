@@ -6,23 +6,30 @@ package listassimples;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author jhoriv
- */
+class Estudiante {
+
+    String nombre;
+    int edad;
+
+    public Estudiante(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+}
+
 public class ListasSimples {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
+
         int opc;
-        
-        do {       
-            
-            opc=Integer.parseInt(JOptionPane.showInputDialog("Menu de Opciones\n"
+
+        do {
+
+            opc = Integer.parseInt(JOptionPane.showInputDialog("Menu de Opciones\n"
                     + "1. Agregar Estudiante\n"
                     + "2. Mostrar Estudiantes\n"
                     + "3. Promedio de Edades\n"
@@ -35,13 +42,9 @@ public class ListasSimples {
                 default:
                     throw new AssertionError();
             }
-            
-        } while (opc!=6);
-        
-        
-        
-        
-        
+
+        } while (opc != 6);
+
     }
-    
+
 }
