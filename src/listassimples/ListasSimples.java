@@ -18,13 +18,24 @@ class Estudiante {
 
 }
 
-class Nodo{
+class Nodo {
+
     Estudiante estudiante;
     Nodo sig;
 
     public Nodo(Estudiante estudiante) {
         this.estudiante = estudiante;
         sig = null;
+    }
+
+}
+
+class Lista{
+    private Nodo L;
+
+    public Lista() {
+        
+        L=null;
     }
     
     
