@@ -30,16 +30,40 @@ class Nodo {
 
 }
 
-class Lista{
+class Lista {
+
     private Nodo L;
 
     public Lista() {
-        
-        L=null;
+
+        L = null;
+    }
+
+    //Metodo Insertar
+    public void insertarInicio(Estudiante estudiante) {
+        Nodo n = new Nodo(estudiante);
+        if (L == null) {
+            L = n;
+        } else {
+            n.sig = L;
+            L = n;
+        }
     }
     
+    // Metodo Imprimir
     
+       public void imprimir() {
+        String cad = "";
+        Nodo p = L;
+        while (p != null) {
+            System.out.println(p.estudiante.nombre + "- Edad: " + p.estudiante.edad );
+            p = p.sig;
+        }
+        System.out.println(cad);
+    }
 }
+
+
 
 public class ListasSimples {
 
@@ -49,6 +73,7 @@ public class ListasSimples {
     public static void main(String[] args) {
 
         int opc;
+        Lista obj = new Lista();
 
         do {
 
@@ -61,6 +86,17 @@ public class ListasSimples {
                     + "6. Salir del Progrma"));
             switch (opc) {
                 case 1:
+                    String nombre = JOptionPane.showInputDialog("Digite Nombre estudiante");
+                    int ed = Integer.parseInt(JOptionPane.showInputDialog("Digite Edad"));
+                    Estudiante est = new Estudiante(nombre, ed);
+                    obj.insertarInicio(est);
+
+                    JOptionPane.showMessageDialog(null, "Estudiante Agregado");
+
+                    break;
+                    
+                case 3: 
+                        obj.imprimir();
                     break;
                 default:
                     throw new AssertionError();
