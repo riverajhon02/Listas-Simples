@@ -4,6 +4,8 @@
  */
 package listassimples;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jhoriv
@@ -14,7 +16,32 @@ public class ListasSimples {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola");
+        
+        
+        int opc;
+        
+        do {       
+            
+            opc=Integer.parseInt(JOptionPane.showInputDialog("Menu de Opciones\n"
+                    + "1. Agregar Estudiante\n"
+                    + "2. Mostrar Estudiantes\n"
+                    + "3. Promedio de Edades\n"
+                    + "4. Mayor de Edad\n"
+                    + "5. Buscar Estudiante\n"
+                    + "6. Salir del Progrma"));
+            switch (opc) {
+                case 1:
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            
+        } while (opc!=6);
+        
+        
+        
+        
+        
     }
     
 }
