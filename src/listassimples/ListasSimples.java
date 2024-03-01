@@ -49,21 +49,48 @@ class Lista {
             L = n;
         }
     }
-    
+
     // Metodo Imprimir
-    
-       public void imprimir() {
+    public void imprimir() {
         String cad = "";
         Nodo p = L;
         while (p != null) {
-            System.out.println(p.estudiante.nombre + "- Edad: " + p.estudiante.edad );
+            System.out.println(p.estudiante.nombre + "- Edad: " + p.estudiante.edad);
             p = p.sig;
         }
         System.out.println(cad);
     }
+
+    //metodo sumar edades
+    public double sumarEdades() {
+        Nodo p = L;
+        double suma = 0;
+        while (p != null) {
+            suma += p.estudiante.edad;
+            p = p.sig;
+        }
+
+        return suma;
+    }
+
+    public int contarEstudiante() {
+        Nodo p = L;
+        int contador = 0;
+        while (p != null) {
+
+            contador++;
+            p = p.sig;
+
+        }
+
+        return contador;
+    }
+
+    public double promedioEdades() {
+
+        return sumarEdades() / contarEstudiante();
+    }
 }
-
-
 
 public class ListasSimples {
 
@@ -94,10 +121,16 @@ public class ListasSimples {
                     JOptionPane.showMessageDialog(null, "Estudiante Agregado");
 
                     break;
-                    
-                case 3: 
-                        obj.imprimir();
+
+                case 2:
+                    obj.imprimir();
                     break;
+                    
+                case 3:
+                    
+                        System.out.println("Promedio de edades: " + obj.promedioEdades());
+                    break;
+                    
                 default:
                     throw new AssertionError();
             }
