@@ -152,7 +152,7 @@ public class ListasSimples {
                     System.out.println(obj.existe(id));
                     if (ex) {
 
-                        System.out.println("Estudinate ya existe");
+                        JOptionPane.showMessageDialog(null, "Estudiante ya existe","Error", JOptionPane.ERROR_MESSAGE);
 
                     } else {
                         String nombre = JOptionPane.showInputDialog("Digite Nombre estudiante");
