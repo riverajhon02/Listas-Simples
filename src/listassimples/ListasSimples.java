@@ -53,6 +53,7 @@ class Lista {
         }
     }
 
+    //Metodo exiate
     public boolean existe(int id) {
         Nodo p = L;
         while (p != null) {
@@ -71,7 +72,7 @@ class Lista {
         String cad = "";
         Nodo p = L;
         while (p != null) {
-            System.out.println("ID: " + p.estudiante.id + "Nombre: " + p.estudiante.nombre + "- Edad: " + p.estudiante.edad);
+            System.out.println("ID: " + p.estudiante.id + "- Nombre: " + p.estudiante.nombre + "- Edad: " + p.estudiante.edad);
             p = p.sig;
         }
         System.out.println(cad);
@@ -84,7 +85,7 @@ class Lista {
         while (p != null) {
 
             if (id == p.estudiante.id) {
-                System.out.println("ID" + p.estudiante.id + " - Nombre: " + p.estudiante.nombre + "- Edad: " + p.estudiante.edad);
+                System.out.println("ID: " + p.estudiante.id + " - Nombre: " + p.estudiante.nombre + "- Edad: " + p.estudiante.edad);
             }
 
             p = p.sig;
@@ -104,7 +105,28 @@ class Lista {
 
         return suma;
     }
+    
+    public void mostrarMayor(){
+         Nodo p = L;
+         
+           int edad=0;
+         while(p!=null){
+             if(p.estudiante.edad>edad){
+                 //System.out.println(p.estudiante.edad);
+                 edad = p.estudiante.edad;
+             }
+             
+              p=p.sig;
+             
+         }
+         
+         System.out.println(edad);
+        
+        
+    }
 
+    
+    //Metodo Contar Estudiante
     public int contarEstudiante() {
         Nodo p = L;
         int contador = 0;
@@ -117,6 +139,8 @@ class Lista {
 
         return contador;
     }
+    
+    //Metodo Promedio
 
     public double promedioEdades() {
 
@@ -146,7 +170,7 @@ public class ListasSimples {
             switch (opc) {
                 case 1:
 
-                    int id = Integer.parseInt(JOptionPane.showInputDialog("Digite id del estudiante"));
+                    int id =(int) (Math.random()*100+1);
                     boolean ex = obj.existe(id);
 
                     System.out.println(obj.existe(id));
@@ -174,6 +198,10 @@ public class ListasSimples {
 
                     System.out.println("Promedio de edades: " + obj.promedioEdades());
                     break;
+                    
+                case 4: 
+                    obj.mostrarMayor();
+                    break;
 
                 case 5:
                     int idBusc = Integer.parseInt(JOptionPane.showInputDialog("Digite id a buscar"));
@@ -182,9 +210,14 @@ public class ListasSimples {
                         obj.imprimirID(idBusc);
 
                     }else{
-                        System.out.println("No hay informacion de ese ID");
+                        JOptionPane.showMessageDialog(null, "No existe informacion de ese ID", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
 
+                    break;
+                    
+                case 6: 
+                    JOptionPane.showMessageDialog(null, "Saliendo...");
+                    
                     break;
 
                 default:
